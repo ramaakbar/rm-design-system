@@ -1,13 +1,15 @@
 import Link from "next/link";
 
+import ThemeSwitcher from "./theme-switcher";
+
 export default function Navbar() {
   return (
-    <header className="mb-5 border py-4">
+    <header className="mb-5 border border-border py-4">
       <div className="container flex items-center justify-between">
         <Link href={"/"} className="font-bold">
           RM ui
         </Link>
-        <div>
+        <div className="flex items-center space-x-2">
           <a href="https://www.github.com/ramaakbar">
             <svg viewBox="0 0 438.549 438.549" className="h-5 w-5">
               <path
@@ -16,6 +18,7 @@ export default function Navbar() {
               ></path>
             </svg>
           </a>
+          <ThemeSwitcher />
         </div>
       </div>
     </header>

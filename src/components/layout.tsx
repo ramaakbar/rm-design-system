@@ -10,16 +10,19 @@ export default function Layout({ children }: PropsWithChildren) {
       <div className="flex-1">
         <div className="container grid grid-cols-6">
           <aside className="hidden md:col-span-1 md:block">
-            <div className="flex flex-col">
-              <h2 className="font-semibold">Getting Started</h2>
-              <Link href={"/"}>About</Link>
-              <Link href={"/"}>Colours</Link>
+            <div className="flex flex-col space-y-2">
+              <div>
+                <h2 className="font-semibold">Getting Started</h2>
+                <div className="flex flex-col">
+                  <Link href={"/"}>About</Link>
+                  <Link href={"/"}>Colours</Link>
+                  <Link href={"/"}>Typography</Link>
+                </div>
+              </div>
               <div>
                 <h2 className="font-semibold">Components</h2>
                 <div className="flex flex-col">
-                  {[...Array(20)].map(() => (
-                    <Link href={"/"}>sadas</Link>
-                  ))}
+                  <Link href={"/components/button"}>Button</Link>
                 </div>
               </div>
             </div>

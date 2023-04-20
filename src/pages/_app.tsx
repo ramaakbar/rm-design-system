@@ -19,7 +19,7 @@ export default function App({ Component, pageProps }: AppProps) {
           --font-sans: ${fontSans.style.fontFamily};
         }
       `}</style>
-      <ThemeProvider defaultTheme="light" enableSystem>
+      <ThemeProvider defaultTheme="light" enableSystem attribute="class">
         <Layout>
           <Component {...pageProps} />
         </Layout>
