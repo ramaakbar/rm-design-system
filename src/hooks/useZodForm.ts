@@ -1,6 +1,6 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { UseFormProps, useForm } from "react-hook-form";
-import { TypeOf, ZodSchema, z } from "zod";
+import { TypeOf, ZodSchema } from "zod";
 
 interface UseZodFormProps<Z extends ZodSchema>
   extends Exclude<UseFormProps<TypeOf<Z>>, "resolver"> {

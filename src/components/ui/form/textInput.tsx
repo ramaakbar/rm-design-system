@@ -1,9 +1,9 @@
 import { ComponentProps, forwardRef } from "react";
-import { Icon, Loader2 } from "lucide-react";
+import { Icon } from "lucide-react";
 import { useFormContext } from "react-hook-form";
 import { twMerge } from "tailwind-merge";
 
-type TextInputProps = ComponentProps<"input"> & {
+export type TextInputProps = ComponentProps<"input"> & {
   label?: string;
   name: string;
   description?: string;
@@ -14,7 +14,6 @@ type TextInputProps = ComponentProps<"input"> & {
 const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
   (
     {
-      id,
       type = "text",
       label,
       placeholder,
@@ -91,5 +90,7 @@ const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
     );
   }
 );
+
+TextInput.displayName = "TextInput";
 
 export default TextInput;

@@ -3,6 +3,8 @@ import { Inter as FontSans } from "next/font/google";
 import { ThemeProvider } from "next-themes";
 
 import "@/styles/globals.css";
+import Head from "next/head";
+
 import Layout from "@/components/layout";
 
 const fontSans = FontSans({
@@ -19,6 +21,20 @@ export default function App({ Component, pageProps }: AppProps) {
           --font-sans: ${fontSans.style.fontFamily};
         }
       `}</style>
+
+      <Head>
+        <title>RM Design System</title>
+        <meta
+          name="viewport"
+          content="minimum-scale=1, initial-scale=1, width=device-width"
+        />
+        <script
+          defer
+          data-domain="ui.ramaakbar.xyz"
+          src="https://analytics.ramaakbar.xyz/js/script.js"
+        ></script>
+      </Head>
+
       <ThemeProvider defaultTheme="light" enableSystem attribute="class">
         <Layout>
           <Component {...pageProps} />
