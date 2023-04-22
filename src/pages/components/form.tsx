@@ -4,6 +4,7 @@ import { z } from "zod";
 
 import Button from "@/components/ui/button";
 import Form from "@/components/ui/form/form";
+import NativeSelect from "@/components/ui/form/nativeSelect";
 import PasswordInput from "@/components/ui/form/passwordInput";
 import TextInput from "@/components/ui/form/textInput";
 
@@ -19,6 +20,7 @@ const schema = z.object({
   password: z.string().min(2, {
     message: "Password must be at least 2 character(s)",
   }),
+  gender: z.union([z.literal("Male"), z.literal("Female")]),
 });
 
 export default function FormPage() {
@@ -62,8 +64,17 @@ export default function FormPage() {
             placeholder="Password"
             {...form.register("password")}
           />
+          <NativeSelect label="Gender" required {...form.register("gender")}>
+            <option value="" disabled>
+              Choose gender
+            </option>
+            {schema.shape.gender.options.map((op) => (
+              <option key={op.value} value={op.value}>
+                {op.value}
+              </option>
+            ))}
+          </NativeSelect>
         </div>
-
         <Button type="submit" isLoading={form.formState.isSubmitting}>
           Submit
         </Button>
