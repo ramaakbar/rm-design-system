@@ -14,15 +14,32 @@ export default function Layout({ children }: PropsWithChildren) {
               <div>
                 <h2 className="font-semibold">Getting Started</h2>
                 <div className="flex flex-col">
-                  <Link href={"/"}>About</Link>
-                  <Link href={"/"}>Colours</Link>
-                  <Link href={"/"}>Typography</Link>
+                  <Link href={"/"} className="text-muted-foreground">
+                    About
+                  </Link>
+                  <Link href={"/"} className="text-muted-foreground">
+                    Colours
+                  </Link>
+                  <Link href={"/"} className="text-muted-foreground">
+                    Typography
+                  </Link>
                 </div>
               </div>
               <div>
                 <h2 className="font-semibold">Components</h2>
                 <div className="flex flex-col">
-                  <Link href={"/components/button"}>Button</Link>
+                  <Link
+                    href={"/components/button"}
+                    className="text-muted-foreground"
+                  >
+                    Button
+                  </Link>
+                  <Link
+                    href={"/components/form"}
+                    className="text-muted-foreground"
+                  >
+                    Form
+                  </Link>
                 </div>
               </div>
             </div>
