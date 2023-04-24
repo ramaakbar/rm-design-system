@@ -4,6 +4,7 @@ import { ThemeProvider } from "next-themes";
 
 import "@/styles/globals.css";
 import Head from "next/head";
+import Script from "next/script";
 
 import Layout from "@/components/layout";
 
@@ -28,12 +29,13 @@ export default function App({ Component, pageProps }: AppProps) {
           name="viewport"
           content="minimum-scale=1, initial-scale=1, width=device-width"
         />
-        <script
-          defer
-          data-domain="ui.ramaakbar.xyz"
-          src="https://analytics.ramaakbar.xyz/js/script.js"
-        ></script>
       </Head>
+
+      <Script
+        defer
+        data-domain="ui.ramaakbar.xyz"
+        src="https://analytics.ramaakbar.xyz/js/script.js"
+      />
 
       <ThemeProvider defaultTheme="light" enableSystem attribute="class">
         <Layout>
