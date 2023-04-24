@@ -6,6 +6,7 @@ import Button from "@/components/ui/button";
 import Form from "@/components/ui/form/form";
 import NativeSelect from "@/components/ui/form/nativeSelect";
 import PasswordInput from "@/components/ui/form/passwordInput";
+import TextArea from "@/components/ui/form/textArea";
 import TextInput from "@/components/ui/form/textInput";
 
 const schema = z.object({
@@ -21,6 +22,13 @@ const schema = z.object({
     message: "Password must be at least 2 character(s)",
   }),
   gender: z.union([z.literal("Male"), z.literal("Female")]),
+  address: z
+    .string()
+    .min(2, {
+      message: "Address must be at least 2 character(s)",
+    })
+    .optional()
+    .or(z.literal("")),
 });
 
 export default function FormPage() {
@@ -31,7 +39,7 @@ export default function FormPage() {
 
   return (
     <>
-      <h1 className="mb-5 text-2xl font-bold">Form</h1>
+      <h1 className="mb-5 text-2xl font-bold">Example Form</h1>
       <Form
         form={form}
         onSubmit={async (data) => {
@@ -46,6 +54,7 @@ export default function FormPage() {
             placeholder="Email"
             description="Enter your email address"
             startNode={Mail}
+            error={form.formState.errors.email?.message}
             {...form.register("email")}
           />
           <TextInput
@@ -55,6 +64,7 @@ export default function FormPage() {
             placeholder="Name"
             description="Enter your name"
             startNode={User}
+            error={form.formState.errors.name?.message}
             {...form.register("name")}
           />
           <PasswordInput
@@ -62,9 +72,15 @@ export default function FormPage() {
             required
             startNode={Lock}
             placeholder="Password"
+            error={form.formState.errors.password?.message}
             {...form.register("password")}
           />
-          <NativeSelect label="Gender" required {...form.register("gender")}>
+          <NativeSelect
+            label="Gender"
+            required
+            error={form.formState.errors.gender?.message}
+            {...form.register("gender")}
+          >
             <option value="" disabled>
               Choose gender
             </option>
@@ -74,6 +90,12 @@ export default function FormPage() {
               </option>
             ))}
           </NativeSelect>
+          <TextArea
+            label="Address"
+            placeholder="Address"
+            error={form.formState.errors.address?.message}
+            {...form.register("address")}
+          />
         </div>
         <Button type="submit" isLoading={form.formState.isSubmitting}>
           Submit
