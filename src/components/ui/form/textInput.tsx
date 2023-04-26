@@ -2,7 +2,7 @@ import { ComponentProps, forwardRef } from "react";
 import { Icon } from "lucide-react";
 import { twMerge } from "tailwind-merge";
 
-import FormField from "./formField";
+import { FormField } from "./formField";
 
 export type TextInputProps = ComponentProps<"input"> & {
   label?: string;
@@ -13,7 +13,7 @@ export type TextInputProps = ComponentProps<"input"> & {
   endNode?: Icon | string;
 };
 
-const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
+export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
   (
     {
       type = "text",
@@ -78,5 +78,3 @@ const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
 );
 
 TextInput.displayName = "TextInput";
-
-export default TextInput;

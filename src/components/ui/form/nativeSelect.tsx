@@ -2,7 +2,7 @@ import { ComponentProps, forwardRef } from "react";
 import { Icon } from "lucide-react";
 import { twMerge } from "tailwind-merge";
 
-import FormField from "./formField";
+import { FormField } from "./formField";
 
 export type NativeSelectProps = ComponentProps<"select"> & {
   label?: string;
@@ -13,7 +13,7 @@ export type NativeSelectProps = ComponentProps<"select"> & {
   endNode?: Icon | string;
 };
 
-const NativeSelect = forwardRef<HTMLSelectElement, NativeSelectProps>(
+export const NativeSelect = forwardRef<HTMLSelectElement, NativeSelectProps>(
   (
     {
       label,
@@ -73,5 +73,3 @@ const NativeSelect = forwardRef<HTMLSelectElement, NativeSelectProps>(
 );
 
 NativeSelect.displayName = "NativeSelect";
-
-export default NativeSelect;

@@ -2,10 +2,10 @@ import { forwardRef, useState } from "react";
 import { Eye, EyeOff } from "lucide-react";
 import { twMerge } from "tailwind-merge";
 
-import FormField from "./formField";
+import { FormField } from "./formField";
 import { TextInputProps } from "./textInput";
 
-const PasswordInput = forwardRef<HTMLInputElement, TextInputProps>(
+export const PasswordInput = forwardRef<HTMLInputElement, TextInputProps>(
   (
     {
       label,
@@ -75,5 +75,3 @@ const PasswordInput = forwardRef<HTMLInputElement, TextInputProps>(
 );
 
 PasswordInput.displayName = "PasswordInput";
-
-export default PasswordInput;

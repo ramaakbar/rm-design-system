@@ -2,12 +2,14 @@ import { useZodForm } from "@/hooks/useZodForm";
 import { Lock, Mail, User } from "lucide-react";
 import { z } from "zod";
 
-import Button from "@/components/ui/button";
-import Form from "@/components/ui/form/form";
-import NativeSelect from "@/components/ui/form/nativeSelect";
-import PasswordInput from "@/components/ui/form/passwordInput";
-import TextArea from "@/components/ui/form/textArea";
-import TextInput from "@/components/ui/form/textInput";
+import {
+  Button,
+  Form,
+  NativeSelect,
+  PasswordInput,
+  TextArea,
+  TextInput,
+} from "@/components/ui";
 
 const schema = z.object({
   email: z.string().email().optional().or(z.literal("")),

@@ -26,7 +26,7 @@ type LinkProps = {
 } & NextLinkProps &
   ComponentPropsWithRef<"a">;
 
-const Link = forwardRef<HTMLAnchorElement, LinkProps>(
+export const Link = forwardRef<HTMLAnchorElement, LinkProps>(
   (
     {
       children,
@@ -81,5 +81,3 @@ const Link = forwardRef<HTMLAnchorElement, LinkProps>(
 );
 
 Link.displayName = "Link";
-
-export default Link;

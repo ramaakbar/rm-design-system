@@ -1,8 +1,7 @@
 import React from "react";
 import { Euro, Mail } from "lucide-react";
 
-import Button from "@/components/ui/button";
-import Link from "@/components/ui/link";
+import { Button, Link } from "@/components/ui";
 
 export default function ButtonPage() {
   return (

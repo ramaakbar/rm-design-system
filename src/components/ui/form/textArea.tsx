@@ -1,16 +1,16 @@
 import { ComponentProps, forwardRef } from "react";
 import { twMerge } from "tailwind-merge";
 
-import FormField from "./formField";
+import { FormField } from "./formField";
 
-export type NativeSelectProps = ComponentProps<"textarea"> & {
+export type TextAreProps = ComponentProps<"textarea"> & {
   label?: string;
   name: string;
   description?: string;
   error?: string;
 };
 
-const TextArea = forwardRef<HTMLTextAreaElement, NativeSelectProps>(
+export const TextArea = forwardRef<HTMLTextAreaElement, TextAreProps>(
   (
     { label, description, required, disabled = false, error, ...props },
     ref
@@ -41,5 +41,3 @@ const TextArea = forwardRef<HTMLTextAreaElement, NativeSelectProps>(
 );
 
 TextArea.displayName = "TextArea";
-
-export default TextArea;

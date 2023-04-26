@@ -13,7 +13,7 @@ interface Props<T extends FieldValues>
   onSubmit: SubmitHandler<T>;
 }
 
-const Form = <T extends FieldValues>({
+export const Form = <T extends FieldValues>({
   form,
   onSubmit,
   children,
@@ -31,5 +31,3 @@ const Form = <T extends FieldValues>({
     </form>
   </FormProvider>
 );
-
-export default Form;

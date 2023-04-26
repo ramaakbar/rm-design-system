@@ -8,7 +8,7 @@ type FormFieldProps = {
   error?: string;
 } & React.PropsWithChildren;
 
-export default function FormField({
+export function FormField({
   name,
   label,
   required,
