@@ -2,9 +2,9 @@ import { ComponentProps, forwardRef } from "react";
 import { Icon } from "lucide-react";
 import { twMerge } from "tailwind-merge";
 
-import { InputWrapper } from "./inputWrapper";
+import { InputWrapper } from "../inputWrapper";
 
-export type TextInputProps = ComponentProps<"input"> & {
+export type NativeSelectProps = ComponentProps<"select"> & {
   label?: string;
   name: string;
   description?: string;
@@ -13,12 +13,10 @@ export type TextInputProps = ComponentProps<"input"> & {
   endNode?: Icon | string;
 };
 
-export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
+export const NativeSelect = forwardRef<HTMLSelectElement, NativeSelectProps>(
   (
     {
-      type = "text",
       label,
-      placeholder,
       description,
       required,
       disabled = false,
@@ -46,16 +44,13 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
             )}
           </div>
         )}
-        <input
-          type={type}
+        <select
           id={props.name}
           ref={ref}
           disabled={disabled}
-          readOnly={disabled}
-          placeholder={placeholder}
           required={required}
           className={twMerge(
-            "block w-full rounded-md border-0 bg-transparent px-3 py-2 ring-1 ring-inset ring-input placeholder:text-muted-foreground focus:ring-2 focus:ring-inset focus:ring-indigo-600 disabled:cursor-not-allowed disabled:bg-muted disabled:opacity-50",
+            "block w-full rounded-md border-0 bg-transparent px-3 py-2 ring-1 ring-inset ring-input placeholder:text-muted-foreground invalid:text-muted-foreground focus:ring-2 focus:ring-inset focus:ring-indigo-600 disabled:cursor-not-allowed disabled:bg-muted disabled:opacity-50",
             error &&
               "text-destructive ring-destructive focus:ring-destructive/80",
             StartNode && "pl-10",
@@ -77,4 +72,4 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
   }
 );
 
-TextInput.displayName = "TextInput";
+NativeSelect.displayName = "NativeSelect";

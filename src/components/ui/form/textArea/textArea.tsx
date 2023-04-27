@@ -1,7 +1,7 @@
 import { ComponentProps, forwardRef } from "react";
 import { twMerge } from "tailwind-merge";
 
-import { InputWrapper } from "./inputWrapper";
+import { InputWrapper } from "../inputWrapper";
 
 export type TextAreProps = ComponentProps<"textarea"> & {
   label?: string;

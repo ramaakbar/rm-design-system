@@ -2,8 +2,8 @@ import { forwardRef, useState } from "react";
 import { Eye, EyeOff } from "lucide-react";
 import { twMerge } from "tailwind-merge";
 
-import { InputWrapper } from "./inputWrapper";
-import { TextInputProps } from "./textInput";
+import { InputWrapper } from "../inputWrapper";
+import { TextInputProps } from "../textInput/textInput";
 
 export const PasswordInput = forwardRef<HTMLInputElement, TextInputProps>(
   (

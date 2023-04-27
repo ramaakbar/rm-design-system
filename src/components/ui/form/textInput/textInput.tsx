@@ -2,9 +2,9 @@ import { ComponentProps, forwardRef } from "react";
 import { Icon } from "lucide-react";
 import { twMerge } from "tailwind-merge";
 
-import { InputWrapper } from "./inputWrapper";
+import { InputWrapper } from "../inputWrapper";
 
-export type NativeSelectProps = ComponentProps<"select"> & {
+export type TextInputProps = ComponentProps<"input"> & {
   label?: string;
   name: string;
   description?: string;
@@ -13,10 +13,12 @@ export type NativeSelectProps = ComponentProps<"select"> & {
   endNode?: Icon | string;
 };
 
-export const NativeSelect = forwardRef<HTMLSelectElement, NativeSelectProps>(
+export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
   (
     {
+      type = "text",
       label,
+      placeholder,
       description,
       required,
       disabled = false,
@@ -44,13 +46,16 @@ export const NativeSelect = forwardRef<HTMLSelectElement, NativeSelectProps>(
             )}
           </div>
         )}
-        <select
+        <input
+          type={type}
           id={props.name}
           ref={ref}
           disabled={disabled}
+          readOnly={disabled}
+          placeholder={placeholder}
           required={required}
           className={twMerge(
-            "block w-full rounded-md border-0 bg-transparent px-3 py-2 ring-1 ring-inset ring-input placeholder:text-muted-foreground invalid:text-muted-foreground focus:ring-2 focus:ring-inset focus:ring-indigo-600 disabled:cursor-not-allowed disabled:bg-muted disabled:opacity-50",
+            "block w-full rounded-md border-0 bg-transparent px-3 py-2 ring-1 ring-inset ring-input placeholder:text-muted-foreground focus:ring-2 focus:ring-inset focus:ring-indigo-600 disabled:cursor-not-allowed disabled:bg-muted disabled:opacity-50",
             error &&
               "text-destructive ring-destructive focus:ring-destructive/80",
             StartNode && "pl-10",
@@ -72,4 +77,4 @@ export const NativeSelect = forwardRef<HTMLSelectElement, NativeSelectProps>(
   }
 );
 
-NativeSelect.displayName = "NativeSelect";
+TextInput.displayName = "TextInput";

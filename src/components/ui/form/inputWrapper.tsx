@@ -18,7 +18,7 @@ export function InputWrapper({
 }: InputWrapperProps) {
   return (
     <div className="flex flex-col">
-      <label htmlFor={name} className="text-sm font-medium">
+      <label htmlFor={name} className="text-sm font-medium text-foreground">
         {label && label}
         {label && required && <span className="text-destructive"> *</span>}
         {description && <p className="text-muted-foreground">{description}</p>}
