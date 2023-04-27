@@ -2,7 +2,7 @@ import { forwardRef, useState } from "react";
 import { Eye, EyeOff } from "lucide-react";
 import { twMerge } from "tailwind-merge";
 
-import { FormField } from "./formField";
+import { InputWrapper } from "./inputWrapper";
 import { TextInputProps } from "./textInput";
 
 export const PasswordInput = forwardRef<HTMLInputElement, TextInputProps>(
@@ -25,7 +25,7 @@ export const PasswordInput = forwardRef<HTMLInputElement, TextInputProps>(
     const handleTogglePassword = () => setShowPassword((prev) => !prev);
 
     return (
-      <FormField
+      <InputWrapper
         label={label}
         description={description}
         required={required}
@@ -69,7 +69,7 @@ export const PasswordInput = forwardRef<HTMLInputElement, TextInputProps>(
             <EyeOff className="h-4 w-4 text-muted-foreground" />
           )}
         </div>
-      </FormField>
+      </InputWrapper>
     );
   }
 );

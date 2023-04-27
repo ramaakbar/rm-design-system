@@ -1,5 +1,5 @@
 export * from "./form";
-export * from "./formField";
+export * from "./inputWrapper";
 export * from "./nativeSelect";
 export * from "./passwordInput";
 export * from "./textArea";

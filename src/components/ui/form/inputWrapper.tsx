@@ -1,6 +1,6 @@
 import { twMerge } from "tailwind-merge";
 
-type FormFieldProps = {
+type InputWrapperProps = {
   name: string;
   label?: string;
   required?: boolean;
@@ -8,14 +8,14 @@ type FormFieldProps = {
   error?: string;
 } & React.PropsWithChildren;
 
-export function FormField({
+export function InputWrapper({
   name,
   label,
   required,
   description,
   error,
   children,
-}: FormFieldProps) {
+}: InputWrapperProps) {
   return (
     <div className="flex flex-col">
       <label htmlFor={name} className="text-sm font-medium">

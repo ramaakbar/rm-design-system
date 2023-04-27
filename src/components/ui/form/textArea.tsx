@@ -1,7 +1,7 @@
 import { ComponentProps, forwardRef } from "react";
 import { twMerge } from "tailwind-merge";
 
-import { FormField } from "./formField";
+import { InputWrapper } from "./inputWrapper";
 
 export type TextAreProps = ComponentProps<"textarea"> & {
   label?: string;
@@ -16,7 +16,7 @@ export const TextArea = forwardRef<HTMLTextAreaElement, TextAreProps>(
     ref
   ) => {
     return (
-      <FormField
+      <InputWrapper
         label={label}
         description={description}
         required={required}
@@ -35,7 +35,7 @@ export const TextArea = forwardRef<HTMLTextAreaElement, TextAreProps>(
           )}
           {...props}
         />
-      </FormField>
+      </InputWrapper>
     );
   }
 );
