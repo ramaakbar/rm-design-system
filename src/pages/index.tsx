@@ -11,6 +11,7 @@ export default function Home() {
       <div className="inline-flex flex-col">
         <a href="https://aether.thcl.dev">Aether Design System</a>
         <a href="https://ui.shadcn.com"> Shad ui</a>
+        <a href="https://mantine.dev"> Mantine</a>
         <a href="https://reshaped.so"> Reshaped</a>
       </div>
     </>

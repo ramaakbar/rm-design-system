@@ -16,6 +16,7 @@ export const PasswordInput = forwardRef<HTMLInputElement, TextInputProps>(
       error,
       startNode: StartNode,
       endNode: EndNode,
+      className,
       ...props
     },
     ref
@@ -54,7 +55,8 @@ export const PasswordInput = forwardRef<HTMLInputElement, TextInputProps>(
             error &&
               "text-destructive ring-destructive focus:ring-destructive/80",
             StartNode && "pl-10",
-            EndNode && "pr-10"
+            EndNode && "pr-10",
+            className
           )}
           {...props}
         />
