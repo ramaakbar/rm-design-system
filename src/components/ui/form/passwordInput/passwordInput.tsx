@@ -59,7 +59,7 @@ export const PasswordInput = forwardRef<HTMLInputElement, TextInputProps>(
           {...props}
         />
 
-        <div
+        <button
           className="absolute inset-y-0 right-0 flex cursor-pointer select-none items-center pr-3"
           onClick={handleTogglePassword}
         >
@@ -68,7 +68,7 @@ export const PasswordInput = forwardRef<HTMLInputElement, TextInputProps>(
           ) : (
             <EyeOff className="h-4 w-4 text-muted-foreground" />
           )}
-        </div>
+        </button>
       </InputWrapper>
     );
   }

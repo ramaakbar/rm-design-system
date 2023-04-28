@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
+import { ArrowRight } from "lucide-react";
 
 import { Link } from "./link";
 
@@ -24,5 +25,14 @@ export const Underline: Story = {
     children: "Button",
     href: "www.google.com",
     variant: "underline",
+  },
+};
+
+export const LinkWithIcon: Story = {
+  args: {
+    children: "Button",
+    href: "www.google.com",
+    variant: "underline",
+    rightIcon: ArrowRight,
   },
 };
