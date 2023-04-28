@@ -1,3 +1,4 @@
+export * from "./checkbox";
 export * from "./nativeSelect";
 export { PasswordInput } from "./passwordInput";
 export { TextArea } from "./textArea";

@@ -4,7 +4,9 @@ import { z } from "zod";
 
 import {
   Button,
+  Checkbox,
   Form,
+  InputWrapper,
   NativeSelect,
   PasswordInput,
   TextArea,
@@ -31,10 +33,18 @@ const schema = z.object({
     })
     .optional()
     .or(z.literal("")),
+  tech: z.string().array().min(2, {
+    message: "Pick atleast 2 tech",
+  }),
 });
 
 export default function FormPage() {
-  const form = useZodForm({ schema });
+  const form = useZodForm({
+    schema,
+    defaultValues: {
+      tech: [],
+    },
+  });
 
   const promiseMock = (data: any) =>
     new Promise((res) => setTimeout(res, 1000)).then(() => console.log(data));
@@ -53,7 +63,7 @@ export default function FormPage() {
           <TextInput
             label="Email"
             type="email"
-            placeholder="Email"
+            placeholder="example@email.com"
             description="Enter your email address"
             startNode={Mail}
             error={form.formState.errors.email?.message}
@@ -98,6 +108,27 @@ export default function FormPage() {
             error={form.formState.errors.address?.message}
             {...form.register("address")}
           />
+          <InputWrapper
+            label="Tech"
+            name="check"
+            description="Select your favorite javascript framework"
+            error={form.formState.errors.tech?.message}
+          >
+            <div className="space-y-2">
+              <Checkbox
+                label="React"
+                description="asdasd"
+                {...form.register("tech")}
+                value="React"
+              />
+              <Checkbox label="Vue" {...form.register("tech")} value="Vue" />
+              <Checkbox
+                label="Svelte"
+                {...form.register("tech")}
+                value="Svelte"
+              />
+            </div>
+          </InputWrapper>
         </div>
         <Button type="submit" isLoading={form.formState.isSubmitting}>
           Submit
