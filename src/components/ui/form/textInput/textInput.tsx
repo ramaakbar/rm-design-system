@@ -16,7 +16,6 @@ export type TextInputProps = ComponentProps<"input"> & {
 export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
   (
     {
-      type = "text",
       label,
       placeholder,
       description,
@@ -47,7 +46,7 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
           </div>
         )}
         <input
-          type={type}
+          type="text"
           id={props.name}
           ref={ref}
           disabled={disabled}

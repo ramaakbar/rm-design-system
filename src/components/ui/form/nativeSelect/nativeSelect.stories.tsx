@@ -18,8 +18,8 @@ type Story = StoryObj<typeof meta>;
 
 export const Input: Story = {
   render: (props) => (
-    <NativeSelect {...props} value="">
-      <option value="" disabled>
+    <NativeSelect {...props}>
+      <option value="" disabled selected>
         Choose item
       </option>
       <option value="asdas">asdas</option>
@@ -29,8 +29,8 @@ export const Input: Story = {
 
 export const DisabledInput: Story = {
   render: (props) => (
-    <NativeSelect {...props} disabled value="">
-      <option value="" disabled>
+    <NativeSelect {...props} disabled>
+      <option value="" disabled selected>
         Choose item
       </option>
       <option value="asdas">asdas</option>
@@ -40,8 +40,8 @@ export const DisabledInput: Story = {
 
 export const ErrorInput: Story = {
   render: (props) => (
-    <NativeSelect {...props} error="Input is required" value="">
-      <option value="" disabled>
+    <NativeSelect {...props} error="Input is required">
+      <option value="" disabled selected>
         Choose item
       </option>
       <option value="asdas">asdas</option>
