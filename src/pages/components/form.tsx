@@ -9,9 +9,12 @@ import {
   InputWrapper,
   NativeSelect,
   PasswordInput,
+  Radio,
   TextArea,
   TextInput,
 } from "@/components/ui";
+
+const tech = ["React", "Vue", "Svelte"] as const;
 
 const schema = z.object({
   email: z.string().email().optional().or(z.literal("")),
@@ -33,9 +36,10 @@ const schema = z.object({
     })
     .optional()
     .or(z.literal("")),
-  tech: z.string().array().min(2, {
+  tech: z.array(z.enum(tech)).min(2, {
     message: "Pick atleast 2 tech",
   }),
+  style: z.union([z.literal("Tailwind"), z.literal("CSS"), z.literal("SCSS")]),
 });
 
 export default function FormPage() {
@@ -43,6 +47,7 @@ export default function FormPage() {
     schema,
     defaultValues: {
       tech: [],
+      style: "Tailwind",
     },
   });
 
@@ -115,18 +120,32 @@ export default function FormPage() {
             error={form.formState.errors.tech?.message}
           >
             <div className="space-y-2">
-              <Checkbox
-                label="React"
-                description="asdasd"
-                {...form.register("tech")}
-                value="React"
-              />
-              <Checkbox label="Vue" {...form.register("tech")} value="Vue" />
-              <Checkbox
-                label="Svelte"
-                {...form.register("tech")}
-                value="Svelte"
-              />
+              {tech.map((val) => (
+                <Checkbox
+                  key={val}
+                  label={val}
+                  description="asdasd"
+                  {...form.register("tech")}
+                  value={val}
+                />
+              ))}
+            </div>
+          </InputWrapper>
+          <InputWrapper
+            label="Styling"
+            name="check"
+            description="Select your prefered styling"
+            error={form.formState.errors.style?.message}
+          >
+            <div className="space-y-2">
+              {schema.shape.style.options?.map((op) => (
+                <Radio
+                  key={op.value}
+                  label={op.value}
+                  value={op.value}
+                  {...form.register("style")}
+                />
+              ))}
             </div>
           </InputWrapper>
         </div>
