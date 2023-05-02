@@ -1,10 +1,12 @@
 import { useZodForm } from "@/hooks/useZodForm";
+import parse from "date-fns/parse";
 import { Lock, Mail, User } from "lucide-react";
 import { z } from "zod";
 
 import {
   Button,
   Checkbox,
+  DateInput,
   Form,
   InputWrapper,
   NativeSelect,
@@ -40,6 +42,7 @@ const schema = z.object({
     message: "Pick atleast 2 tech",
   }),
   style: z.union([z.literal("Tailwind"), z.literal("CSS"), z.literal("SCSS")]),
+  birthDate: z.string(),
 });
 
 export default function FormPage() {
@@ -47,12 +50,17 @@ export default function FormPage() {
     schema,
     defaultValues: {
       tech: [],
+      birthDate: "",
       style: "Tailwind",
     },
   });
 
   const promiseMock = (data: any) =>
-    new Promise((res) => setTimeout(res, 1000)).then(() => console.log(data));
+    new Promise((res) => setTimeout(res, 1000)).then(() => {
+      const date = parse(data.birthDate, "d MMM yyyy", new Date());
+      data.birthDate = date;
+      console.log(data);
+    });
 
   return (
     <>
@@ -148,11 +156,17 @@ export default function FormPage() {
               ))}
             </div>
           </InputWrapper>
+          <DateInput
+            label="Birth Date"
+            error={form.formState.errors.birthDate?.message}
+            {...form.register("birthDate")}
+          />
         </div>
         <Button type="submit" isLoading={form.formState.isSubmitting}>
           Submit
         </Button>
       </Form>
+      <div></div>
     </>
   );
 }

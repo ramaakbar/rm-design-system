@@ -65,3 +65,8 @@
     --ring: 216 34% 17%;
   }
 }
+
+/* calendar css */
+.rdp-vhidden {
+  @apply hidden;
+}

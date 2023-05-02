@@ -4,5 +4,6 @@ export { PasswordInput } from "./passwordInput";
 export { TextArea } from "./textArea";
 export { TextInput } from "./textInput";
 export * from "./radio";
+export * from "./dateInput";
 export * from "./form";
 export * from "./inputWrapper";
