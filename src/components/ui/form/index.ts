@@ -7,3 +7,4 @@ export * from "./radio";
 export * from "./dateInput";
 export * from "./form";
 export * from "./inputWrapper";
+export * from "./dropzoneInput";

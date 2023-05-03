@@ -7,6 +7,7 @@ import {
   Button,
   Checkbox,
   DateInput,
+  DropzoneInput,
   Form,
   InputWrapper,
   NativeSelect,
@@ -43,6 +44,7 @@ const schema = z.object({
   }),
   style: z.union([z.literal("Tailwind"), z.literal("CSS"), z.literal("SCSS")]),
   birthDate: z.string(),
+  picture: z.array(z.custom<File>((v) => v instanceof File)).optional(),
 });
 
 export default function FormPage() {
@@ -51,7 +53,8 @@ export default function FormPage() {
     defaultValues: {
       tech: [],
       birthDate: "",
-      style: "Tailwind",
+      style: undefined,
+      picture: undefined,
     },
   });
 
@@ -123,6 +126,7 @@ export default function FormPage() {
           />
           <InputWrapper
             label="Tech"
+            required
             name="check"
             description="Select your favorite javascript framework"
             error={form.formState.errors.tech?.message}
@@ -160,6 +164,16 @@ export default function FormPage() {
             label="Birth Date"
             error={form.formState.errors.birthDate?.message}
             {...form.register("birthDate")}
+          />
+          <DropzoneInput
+            maxFiles={3}
+            label="Picture"
+            accept={{
+              "image/*": [],
+            }}
+            description="Max 3 Files, up to 2MB (Only accept image)"
+            error={form.formState.errors.picture?.message}
+            {...form.register("picture")}
           />
         </div>
         <Button type="submit" isLoading={form.formState.isSubmitting}>
