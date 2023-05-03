@@ -4,7 +4,7 @@ import ThemeSwitcher from "./theme-switcher";
 
 export default function Navbar() {
   return (
-    <header className="mb-5 border border-border py-4">
+    <header className="mb-5 border-b border-border py-4">
       <div className="container flex items-center justify-between">
         <Link href={"/"} className="font-bold">
           RM ui
