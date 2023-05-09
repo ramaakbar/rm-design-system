@@ -35,6 +35,12 @@ export default function Layout({ children }: PropsWithChildren) {
                     Button
                   </Link>
                   <Link
+                    href={"/components/dialog"}
+                    className="text-muted-foreground"
+                  >
+                    Dialog
+                  </Link>
+                  <Link
                     href={"/components/form"}
                     className="text-muted-foreground"
                   >

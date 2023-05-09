@@ -6,6 +6,7 @@ system, or even contribute to make it better!
 ## Todo
 
 - [ ] Add group checkbox and radio on story
+- [ ] Fix theming on storybook
 - [ ] Add Sidebar Navigation
 - [ ] Update docs using mdx with "storybook"
 - [ ] Update colors(dark mode color, primary, secondary, success, info, warning, etc)
@@ -17,7 +18,7 @@ system, or even contribute to make it better!
 - [ ] Avatar
 - [x] Button
 - [ ] Colors
-- [ ] Dialog
+- [x] Dialog
 - [ ] Dropdown
 - [x] Link
 - [ ] Rich Text Editor

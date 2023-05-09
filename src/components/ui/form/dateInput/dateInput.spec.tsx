@@ -3,7 +3,6 @@ import userEvent from "@testing-library/user-event";
 
 import { DateInput } from "./dateInput";
 
-// still wip
 describe("DateInput", () => {
   it("should renders label, input", async () => {
     render(<DateInput label="label" name="date" />);
