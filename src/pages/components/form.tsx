@@ -17,7 +17,25 @@ import {
   TextInput,
 } from "@/components/ui";
 
+//  Form schema
 const tech = ["React", "Vue", "Svelte"] as const;
+
+const gender = [
+  {
+    label: "Choose gender",
+    value: "",
+  },
+  {
+    label: "Male",
+    value: "male",
+  },
+  {
+    label: "Female",
+    value: "female",
+  },
+] as const;
+
+const style = ["Tailwind", "CSS", "SCSS"] as const;
 
 const schema = z.object({
   email: z.string().email().optional().or(z.literal("")),
@@ -31,7 +49,7 @@ const schema = z.object({
   password: z.string().min(2, {
     message: "Password must be at least 2 character(s)",
   }),
-  gender: z.union([z.literal("Male"), z.literal("Female")]),
+  gender: z.union([z.literal(gender[1].value), z.literal(gender[2].value)]),
   address: z
     .string()
     .min(2, {
@@ -42,7 +60,9 @@ const schema = z.object({
   tech: z.array(z.enum(tech)).min(2, {
     message: "Pick atleast 2 tech",
   }),
-  style: z.union([z.literal("Tailwind"), z.literal("CSS"), z.literal("SCSS")]),
+  style: z.enum(style, {
+    errorMap: () => ({ message: "Required input" }),
+  }),
   birthDate: z.string(),
   picture: z.array(z.custom<File>((v) => v instanceof File)).optional(),
 });
@@ -52,6 +72,7 @@ export default function FormPage() {
     schema,
     defaultValues: {
       tech: [],
+      gender: undefined,
       birthDate: "",
       style: undefined,
       picture: undefined,
@@ -109,12 +130,9 @@ export default function FormPage() {
             error={form.formState.errors.gender?.message}
             {...form.register("gender")}
           >
-            <option value="" disabled>
-              Choose gender
-            </option>
-            {schema.shape.gender.options.map((op) => (
-              <option key={op.value} value={op.value}>
-                {op.value}
+            {gender.map((option) => (
+              <option key={option.label} value={option.value}>
+                {option.label}
               </option>
             ))}
           </NativeSelect>
@@ -146,15 +164,16 @@ export default function FormPage() {
           <InputWrapper
             label="Styling"
             name="check"
+            required
             description="Select your prefered styling"
             error={form.formState.errors.style?.message}
           >
             <div className="space-y-2">
-              {schema.shape.style.options?.map((op) => (
+              {style.map((option) => (
                 <Radio
-                  key={op.value}
-                  label={op.value}
-                  value={op.value}
+                  key={option}
+                  label={option}
+                  value={option}
                   {...form.register("style")}
                 />
               ))}

@@ -5,10 +5,9 @@ system, or even contribute to make it better!
 
 ## Todo
 
-- [ ] Make test for date input and dropzone
 - [ ] Add group checkbox and radio on story
 - [ ] Add Sidebar Navigation
-- [ ] Update docs using mdx with storybook
+- [ ] Update docs using mdx with "storybook"
 - [ ] Update colors(dark mode color, primary, secondary, success, info, warning, etc)
 
 ## Components
@@ -21,6 +20,7 @@ system, or even contribute to make it better!
 - [ ] Dialog
 - [ ] Dropdown
 - [x] Link
+- [ ] Rich Text Editor
 - [ ] Typography
 - [ ] Toast
 - [ ] Form
