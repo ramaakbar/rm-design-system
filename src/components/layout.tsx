@@ -35,6 +35,10 @@ export const navigationItem = {
       name: "Form",
       link: "/components/form",
     },
+    {
+      name: "Rich text editor",
+      link: "/components/richTextEditor",
+    },
   ],
 };
 
@@ -64,7 +68,7 @@ export default function Layout({ children }: PropsWithChildren) {
                 <div className="flex flex-col">
                   {navigationItem.gettingStarted.map((navItem) => (
                     <Link
-                      key={navItem.link}
+                      key={navItem.name}
                       href={navItem.link}
                       className="text-muted-foreground"
                     >

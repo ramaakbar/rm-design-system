@@ -21,7 +21,7 @@ system, or even contribute to make it better!
 - [x] Dialog
 - [ ] Dropdown
 - [x] Link
-- [ ] Rich Text Editor
+- [x] Rich Text Editor
 - [ ] Typography
 - [ ] Toast
 - [ ] Form
