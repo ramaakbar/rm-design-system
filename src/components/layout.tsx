@@ -1,11 +1,12 @@
 import { PropsWithChildren } from "react";
-import Link from "next/link";
+import { useRouter } from "next/router";
 import { useAtom } from "jotai";
 import { Search } from "lucide-react";
+import { twMerge } from "tailwind-merge";
 
 import { commandMenuAtom } from "./commandMenu";
 import Navbar from "./navbar";
-import { Button } from "./ui";
+import { Button, Link } from "./ui";
 
 export const navigationItem = {
   gettingStarted: [
@@ -15,11 +16,11 @@ export const navigationItem = {
     },
     {
       name: "Colours",
-      link: "/",
+      link: "/colours",
     },
     {
       name: "Typography",
-      link: "/",
+      link: "/typography",
     },
   ],
   components: [
@@ -43,6 +44,7 @@ export const navigationItem = {
 };
 
 export default function Layout({ children }: PropsWithChildren) {
+  const router = useRouter();
   const [, setOpen] = useAtom(commandMenuAtom);
 
   return (
@@ -70,7 +72,11 @@ export default function Layout({ children }: PropsWithChildren) {
                     <Link
                       key={navItem.name}
                       href={navItem.link}
-                      className="text-muted-foreground"
+                      variant="subtle"
+                      className={twMerge(
+                        "justify-start",
+                        router.asPath === navItem.link && "text-foreground"
+                      )}
                     >
                       {navItem.name}
                     </Link>
@@ -84,7 +90,11 @@ export default function Layout({ children }: PropsWithChildren) {
                     <Link
                       key={navItem.link}
                       href={navItem.link}
-                      className="text-muted-foreground"
+                      variant="subtle"
+                      className={twMerge(
+                        "justify-start",
+                        router.asPath === navItem.link && "text-foreground"
+                      )}
                     >
                       {navItem.name}
                     </Link>

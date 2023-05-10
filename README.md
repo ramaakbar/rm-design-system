@@ -13,10 +13,12 @@ system, or even contribute to make it better!
 
 ## Components
 
+- [ ] Accordion
 - [ ] Alert
 - [ ] Alert Dialog
 - [ ] Avatar
 - [x] Button
+- [] Badge
 - [ ] Colors
 - [x] Dialog
 - [ ] Dropdown
