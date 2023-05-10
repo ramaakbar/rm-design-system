@@ -6,6 +6,7 @@ import "@/styles/globals.css";
 import Head from "next/head";
 import Script from "next/script";
 
+import CommandMenu from "@/components/commandMenu";
 import Layout from "@/components/layout";
 
 const fontSans = FontSans({
@@ -40,6 +41,7 @@ export default function App({ Component, pageProps }: AppProps) {
       <ThemeProvider defaultTheme="light" enableSystem attribute="class">
         <Layout>
           <Component {...pageProps} />
+          <CommandMenu />
         </Layout>
       </ThemeProvider>
     </>
