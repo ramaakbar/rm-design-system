@@ -18,7 +18,7 @@ system, or even contribute to make it better!
 - [ ] Alert Dialog
 - [ ] Avatar
 - [x] Button
-- [] Badge
+- [x] Badge
 - [ ] Colors
 - [x] Dialog
 - [ ] Dropdown
