@@ -1,4 +1,3 @@
-import { useZodForm } from "@/hooks/useZodForm";
 import parse from "date-fns/parse";
 import { Lock, Mail, User } from "lucide-react";
 import { z } from "zod";
@@ -16,6 +15,7 @@ import {
   TextArea,
   TextInput,
 } from "@/components/ui";
+import { useZodForm } from "@/hooks/useZodForm";
 
 //  Form schema
 const tech = ["React", "Vue", "Svelte"] as const;
